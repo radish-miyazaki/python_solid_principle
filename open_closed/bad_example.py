@@ -2,7 +2,7 @@ import math
 from typing import Literal
 
 # 従業員の職位
-Grade = Literal["junior", "middle", "senior"]
+Grade = Literal["junior", "middle", "senior", "expert"]
 
 
 class Employee:
@@ -22,14 +22,18 @@ class BonusCalculator:
             return math.floor(self.base * 1.5)
         elif employee.grade == "senior":
             return math.floor(self.base * 2)
+        elif employee.grade == "expert":
+            return math.floor(self.base * 3)
 
 
 if __name__ == "__main__":
     emp1 = Employee("Yamada", "junior")
     emp2 = Employee("Suzuki", "middle")
     emp3 = Employee("Tanaka", "senior")
+    emp4 = Employee("Kimura", "expert")
 
     bonus_calculator = BonusCalculator(100)
     print(bonus_calculator.get_bonus(emp1))
     print(bonus_calculator.get_bonus(emp2))
     print(bonus_calculator.get_bonus(emp3))
+    print(bonus_calculator.get_bonus(emp4))
