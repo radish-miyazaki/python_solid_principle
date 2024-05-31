@@ -15,7 +15,7 @@ class UserController:
 
 class UserService:
     def __init__(self):
-        self.__user_repository = UserRdbRepository()
+        self.__user_repository = UserRDBRepository()
 
     def create(self, user: User) -> User:
         return self.__user_repository.create(user)
@@ -24,7 +24,7 @@ class UserService:
         return self.__user_repository.find_by_id(id)
 
 
-class UserRdbRepository:
+class UserRDBRepository:
     def create(self, user: User) -> User:
         print("RDBにUserを登録")
         return user
